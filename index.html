@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Guard Pass - Hacker Defense Suite</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            background-color: #000000; /* Pure Pitch Black */
+            color: #22c55e; /* Cyber Green */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .main-card {
+            background-color: #050505;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 225, 255, 0.2);
+            border: 2px solid #00d2ff; /* Cyber Blue Border */
+            width: 90%;
+            max-width: 440px;
+            text-align: center;
+        }
+
+        /* Hacker Graphic Container */
+        .hacker-icon-container {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+        }
+
+        .hacker-svg {
+            width: 100%;
+            height: 100%;
+            fill: #00d2ff; /* Cyber Blue Hacker Hat/Mask */
+        }
+
+        /* Red Cross SVG overlay */
+        .cross-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        h1 {
+            color: #00d2ff; /* Electric Blue */
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00d2ff;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #22c55e; /* Green */
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .security-box {
+            background-color: #0a0a0a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #22c55e; /* Green Accent */
+            margin-bottom: 20px;
+        }
+
+        .security-box h2 {
+            font-size: 17px;
+            margin-top: 0;
+            color: #00d2ff; /* Blue */
+            text-align: left;
+        }
+
+        .security-box h3 {
+            font-size: 14px;
+            color: #ef4444; /* Red */
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        p {
+            color: #22c55e; /* Green */
+            font-size: 13px;
+            text-align: left;
+        }
+
+        input, select {
+            width: 88%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #00d2ff; /* Blue */
+            border-radius: 6px;
+            background-color: #000000;
+            color: #22c55e; /* Green Text */
+            text-align: center;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ef4444; /* Red focus */
+            box-shadow: 0 0 8px #ef4444;
+        }
+
+        .btn {
+            width: 95%;
+            padding: 12px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .green-btn {
+            background-color: #22c55e;
+            color: #000000;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+        }
+
+        .green-btn:hover {
+            background-color: #16a34a;
+            color: #ffffff;
+        }
+
+        .blue-btn {
+            background-color: #00d2ff;
+            color: #000000;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        }
+
+        .blue-btn:hover {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+
+        .status-msg {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 8px;
+            color: #ef4444; /* Red */
+            text-align: left;
+        }
+
+        .otp-screen {
+            background-color: #000000;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 6px;
+            color: #22c55e; /* Cyber Green */
+            border: 1px dashed #ef4444; /* Red Border */
+            text-shadow: 0 0 8px #22c55e;
+        }
+
+        .timer-info {
+            font-size: 12px;
+            color: #ef4444; /* Red Timer */
+            margin-top: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: #ef4444; /* Red Divider Line */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        
+        <!-- Hacker Hat with Red Cross Icon -->
+        <div class="hacker-icon-container">
+            <svg class="hacker-svg" viewBox="0 0 24 24">
+                <path d="M12 2C9 2 4 3.5 4 6V8H20V6C20 3.5 15 2 12 2ZM2 10V11C2 12.1 2.9 13 4 13H20C21.1 13 22 12.1 22 11V10H2ZM5 15C3.9 15 3 15.9 3 17V18C3 19.1 3.9 20 5 20H9C10.1 20 11 19.1 11 18V17C11 15.9 10.1 15 9 15H5ZM15 15C13.9 15 13 15.9 13 17V18C13 19.1 13.9 20 15 20H19C20.1 20 21 19.1 21 18V17C21 15.9 20.1 15 19 15H15Z"/>
+            </svg>
+            <svg class="cross-overlay" viewBox="0 0 100 100">
+                <line x1="15" y1="15" x2="85" y2="85" stroke="#ef4444" stroke-width="10" stroke-linecap="round" />
+                <line x1="85" y1="15" x2="15" y2="85" stroke="#ef4444" stroke-width="10" stroke-linecap="round" />
+            </svg>
+        </div>
+
+        <h1>Cyber Guard Pass</h1>
+        <p class="tagline">[ Anti-Hacker OTP Defense System ]</p>
+
+        <!-- Feature 1: Password Health Checker -->
+        <div class="security-box">
+            <h2>🔑 Password Health Checker</h2>
+            <p>Test your password strength:</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" oninput="checkPasswordStrength()">
+            <div id="strengthMessage" class="status-msg">Strength: None</div>
+        </div>
+
+        <!-- Feature 2: Dynamic OTP & Key Rotation System -->
+        <div class="security-box">
+            <h2>🔐 TOTP Security Generator</h2>
+            <p>Select OTP Source Gateway:</p>
+            
+            <!-- Government Gateway Verification Check -->
+            <select id="serverDomain">
+                <option value="official.gov.in">Government Gateway (*.gov.in)</option>
+                <option value="untrusted-server.com">Untrusted / External Gateway</option>
+            </select>
+
+            <p>Enter secret PIN to generate OTP:</p>
+            <input type="password" id="userPin" placeholder="4-digit Secret PIN (Default: 1234)">
+            <button class="btn green-btn" onclick="generateSecureOTP()">Generate Secure OTP</button>
+
+            <div id="otpDisplay" class="otp-screen">------</div>
+            <p id="timerText" class="timer-info"></p>
+
+            <hr class="divider">
+
+            <h3>🔄 Secret Key Rotation</h3>
+            <p>Change your authorization key:</p>
+            <input type="password" id="oldPinInput" placeholder="Current PIN">
+            <input type="password" id="newPinInput" placeholder="New Secret PIN">
+            <button class="btn blue-btn" onclick="changeSecretPin()">Update Secret Key</button>
+        </div>
+    </div>
+
+    <script>
+        // Default Secret PIN
+        let currentSecretPin = "1234";
+        let otpTimer = null;
+
+        // Password Health Checker Logic
+        function checkPasswordStrength() {
+            let password = document.getElementById("passwordInput").value;
+            let message = document.getElementById("strengthMessage");
+
+            if (password.length === 0) {
+                message.innerText = "Strength: None";
+                message.style.color = "#00d2ff";
+            } else if (password.length < 6) {
+                message.innerText = "Strength: Weak 🔴";
+                message.style.color = "#ef4444";
+            } else if (password.length < 10 || !/\d/.test(password)) {
+                message.innerText = "Strength: Medium 🟡";
+                message.style.color = "#eab308";
+            } else {
+                message.innerText = "Strength: Strong 🟢";
+                message.style.color = "#22c55e";
+            }
+        }
+
+        // 1. Generate OTP Logic with .gov.in Verification
+        function generateSecureOTP() {
+            let domainSelect = document.getElementById("serverDomain").value;
+            let inputPin = document.getElementById("userPin").value;
+            let display = document.getElementById("otpDisplay");
+            let timerText = document.getElementById("timerText");
+
+            if (otpTimer) {
+                clearInterval(otpTimer);
+            }
+
+            // Step A: Domain Verification (.gov.in Filter)
+            if (!domainSelect.endsWith(".gov.in")) {
+                alert("Security Warning: Rejected! OTP is not originating from an official .gov.in server.");
+                display.innerText = "BLOCKED";
+                display.style.color = "#ef4444";
+                timerText.innerText = "Untrusted Gateway Rejected";
+                timerText.style.color = "#ef4444";
+                return;
+            }
+
+            // Step B: Authenticate PIN
+            if (inputPin !== currentSecretPin) {
+                alert("Access Denied: Invalid Secret PIN.");
+                display.innerText = "DENIED";
+                display.style.color = "#ef4444";
+                timerText.innerText = "";
+                return;
+            }
+
+            // Step C: Generate 6-digit random OTP if domain is verified
+            let generatedOTP = Math.floor(100000 + Math.random() * 900000);
+            display.innerText = generatedOTP;
+            display.style.color = "#22c55e";
+
+            // 10-second live timer
+            let timeLeft = 10;
+            timerText.innerText = `Expires in: ${timeLeft}s [Gov Verified]`;
+            timerText.style.color = "#00d2ff";
+
+            otpTimer = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    timerText.innerText = `Expires in: ${timeLeft}s [Gov Verified]`;
+                } else {
+                    clearInterval(otpTimer);
+                    display.innerText = "EXPIRED";
+                    display.style.color = "#ef4444";
+                    timerText.innerText = "OTP invalidated!";
+                    timerText.style.color = "#ef4444";
+                }
+            }, 1000);
+        }
+
+        // 2. Secret Key Rotation Logic
+        function changeSecretPin() {
+            let oldPin = document.getElementById("oldPinInput").value;
+            let newPin = document.getElementById("newPinInput").value;
+
+            if (oldPin === currentSecretPin) {
+                if (newPin.length >= 4) {
+                    currentSecretPin = newPin;
+                    alert("Success: Secret Key updated!");
+                    document.getElementById("oldPinInput").value = "";
+                    document.getElementById("newPinInput").value = "";
+                    document.getElementById("userPin").value = "";
+                } else {
+                    alert("Error: New PIN must be at least 4 digits long.");
+                }
+            } else {
+                alert("Error: Incorrect current PIN.");
+            }
+        }
+    </script>
+</body>
+</html>
